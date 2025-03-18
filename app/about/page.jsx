@@ -18,7 +18,7 @@ export default function AboutUs() {
       <About />
       {/*<Stats style="about" />*/}
       {/*  <Video />*/}
-      <Philosophy style="about" />
+      {/* <Philosophy style="about" /> */}
       <Award />
       <Testimonial />
       <Faq />

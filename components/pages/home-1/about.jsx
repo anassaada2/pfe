@@ -28,7 +28,7 @@ export default function About() {
           >
             <div className="content-text-block-wrapper">
               <div className="content-text-block">
-                <span className="subtitle">A propos de nous </span>
+                <span className="anas-title">A propos de nous </span>
                 <h2 className="content-title heading-md mb-32">
                   Nous concevons des solutions en ingénierie et développement
                   durable

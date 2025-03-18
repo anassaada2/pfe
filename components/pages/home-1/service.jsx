@@ -3,10 +3,10 @@ import ServiceCard from "./ui/service-card";
 
 export default function Service() {
   return (
-    <div className="service-section bg-sand section-padding-140">
+    <div className="service-section        bg-sand section-padding-140">
       <div className="container">
         <div className="section-heading text-center">
-          <span className="subtitle">nos services</span>
+          <span className="anas-title">Nos services</span>
           <h2 className="section-heading__title">
             L’excellence au service de demain
           </h2>

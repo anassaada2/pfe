@@ -28,7 +28,9 @@ export default function About() {
           >
             <div className="content-text-block-wrapper">
               <div className="content-text-block">
-                <span className="subtitle">a propos de AFEC </span>
+                <span className="anas-title text-uppercase  ">
+                  A propos de AFEC{" "}
+                </span>
                 <h2 className="content-title heading-md mb-32">
                   Ingénierie et Innovation au Service du Génie Civil et de la
                   Sécurité Incendie

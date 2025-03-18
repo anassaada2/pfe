@@ -4,7 +4,7 @@ import "@/components/ui/sections/faq.scss";
 
 export default function Brand() {
   return (
-    <div className="brand-section bg-black padding-bottom-130">
+    <div className="brand-section padding-bottom-130">
       <div className="container">
         <div className="row">
           <div className="col-12  overflow-hidden">

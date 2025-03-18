@@ -12,7 +12,9 @@ export default function Faq() {
           <div className="col-xxl-4 col-lg-5 col-md-9">
             <div className="faq-content">
               <div className="faq-content__text-block">
-                <span className="subtitle">Nos Projets</span>
+                <span className="  anas-title text-uppercase        ">
+                  Nos Projets
+                </span>
                 <h1 className="faq-content__title heading-md text-black mb-res-60">
                   L’Innovation à l’Épreuve de la Réalité
                 </h1>
@@ -109,10 +111,10 @@ export default function Faq() {
           </div>
         </div>
         <div className="text-center mb-5    ">
-          <h4 className="subtitle           ">nos partenaires </h4>
+          <h4 className="anas-title text-uppercase"> nos partenaires </h4>
           <h1>
             Nos principaux clients potentiels qui nous ont accordé leur
-            confiance sont
+            confiance
           </h1>
         </div>
         <Brand />

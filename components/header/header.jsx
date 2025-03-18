@@ -25,7 +25,7 @@ export default function Header() {
               <img
                 height={76}
                 width={149}
-                src="./image/AFEC/logo.png"
+                src="./image/AFEC/logo-.png"
                 alt="logo"
               />
             </Link>

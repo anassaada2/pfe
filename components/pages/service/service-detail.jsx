@@ -1,102 +1,177 @@
 import Image from "next/image";
-
+import { avantages, etape, certif } from "@/data/site";
+import Tableau from "./Tableau";
+import Etape from "./Etape";
 export default function ServiceDetail() {
-    return (
-        <div className="service-details_main-section section-padding-140 single-page-content">
-            <div className="container">
-                <div className="row justify-content-center ">
-                    <div className="col-12">
-                        <div className="service-details_main-image">
-                            <Image
-                                height={606}
-                                width={1116}
-                                src="/image/service/service-1.png"
-                                alt="service image"
-                                className="w-100 h-auto"
-                            />
-                        </div>
-                    </div>
-                    <div className="col-lg-8">
-                        <h3>About the Service</h3>
-                        <p>
-                            Risus rhoncus, vel erat rhoncus, consequat ut
-                            aliquet. Tortor semper sed proin augue laoreet
-                            placerat. Vestibulum sit fames arcu ut justo
-                            accumsan eget. Rhoncus dictumst magna ornare
-                            eleifend egestas in faucibus nascetur arcu. Nulla
-                            maecenas massa lectus tortor urna ipsum diam
-                            ultrices commodo. Metus eget nulla sit consectetur
-                            egestas velit. Eu, morbi suspendisse massa nec,
-                            neque ac dui. Vel, tortor mattis ut ornare elit
-                        </p>
-                        <p>
-                            At Konstruktion, we are passionate about driving
-                            value into every project we undertake. We continue
-                            to challenge our people, projects and the industry.
-                            By being forward-thinking , we are continually
-                            finding new ways to deliver success for our clients
-                            and stakeholders.
-                        </p>
-                    </div>
-                    <div className="col-lg-12">
-                        <div className="row service-details_main-image-row">
-                            <div className="col-6">
-                                <Image
-                                    height={170}
-                                    width={170}
-                                    src="/image/service/service-2.png"
-                                    alt="service image"
-                                    className="w-100 h-auto"
-                                />
-                            </div>
-                            <div className="col-6">
-                                <Image
-                                    height={170}
-                                    width={170}
-                                    src="/image/service/service-3.png"
-                                    alt="service image"
-                                    className="w-100 h-auto"
-                                />
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col-lg-8">
-                        <span>
-                            Risus rhoncus, vel erat rhoncus, consequat ut
-                            aliquet. Tortor semper sed proin augue placerat.
-                            Vestibulum sit fames arcu ut justo accumsan eget.
-                            Rhoncus dictumst magna ornare egestas in faucibus
-                            nascetur arcu. Nulla maecenas massa lectus
-                        </span>
-                        <h3>What&apos;s Included in This Service?</h3>
-                        <p>
-                            Senectus natoque duis consequat varius pulvinar
-                            eleifend. Diam ullamcorper sit commodo tempor id
-                            tempor massa. Nibh fringilla dictum duis sed odio.
-                            Faucibus vitae leo vitae mauris enim velit id at.
-                            Penatibus nibh adipiscing dui sit. Vestibulum
-                            gravida nisl nisl egestas gravida euismod. Tempor
-                            urna facilisis turpis senectus. Nullam aliquet eros,
-                            proin in. In cursus
-                        </p>
-                        <ul className="list-style-bullet">
-                            <li>
-                                Neque sodales ut etiam sit amet nisl purus non
-                                tellus orci
-                            </li>
-                            <li>
-                                Adipiscing elit ut aliquam purus sit amet
-                                viverra potenti
-                            </li>
-                            <li>
-                                Adipiscing elit ut aliquam purus sit viverra
-                                suspendisse potenti
-                            </li>
-                            <li>Mauris commodo quis imperdiet massa</li>
-                        </ul>
-                    </div>
-                </div>
+  return (
+    <div className="service-details_main-section section-padding-140 single-page-content">
+      <div className="container">
+        <div className="row justify-content-center ">
+          <div className="col-12">
+            <div className="service-details_main-image">
+              <Image
+                height={606}
+                width={1116}
+                src="/image/AFEC/equipe.jpg"
+                alt="service image"
+                className="w-100 h-auto"
+              />
             </div>
+          </div>
+          <div className="col-lg-8">
+            <h3>A PROPOS ECO-BOOT</h3>
+            <p>
+              <span className="fw-bold text-dark"> ECO-BOOT </span> est une
+              solution innovante de coffrage conçu pour simplifier la
+              construction de dalles réticulées.
+              <br /> Fabriqué en polystyrène,{" "}
+              <span className="fw-bold text-dark"> ECO-BOOT </span> rend les
+              planchers plus légers et plus économiques.
+              <br /> Idéal pour des projet variés,
+              <span className="fw-bold text-dark"> ECO-BOOT </span> permet aux
+              professionnels de réaliser des planchers élégants, sans compromis
+              sur la qualité ou la durabilité.
+              <br /> En offrant à la fois flexibilité et facilité
+              d’installation,{" "}
+              <span className="fw-bold text-dark"> ECO-BOOT </span> s’impose
+              comme un choix privilégie pour des constructions innovantes, plus
+              économiques et respectueuses de l’environnement.
+            </p>
+          </div>
+          <div className="col-lg-12">
+            <div className="row service-details_main-image-row">
+              <div className="col-6">
+                <Image
+                  height={170}
+                  width={170}
+                  src="/image/service/service-2.png"
+                  alt="service image"
+                  className="w-100 h-auto"
+                />
+              </div>
+              <div className="col-6">
+                <Image
+                  height={170}
+                  width={170}
+                  src="/image/service/service-3.png"
+                  alt="service image"
+                  className="w-100 h-auto"
+                />
+              </div>
+            </div>
+          </div>
+          <div className="col-lg-8">
+            <h3>Avantages d’ECO-BOOT</h3>
+            <ul className="list-style-bullet">
+              {avantages.map((item, index) => (
+                <li key={index} className="">
+                  <p>
+                    <strong>{item.titre}</strong> : {item.description}
+                  </p>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
-    );
+      </div>
+      <div className="ecarteur mt-md-5">
+        <div className="container">
+          <div className="row">
+            <div className="col-12 col-md-8  mt-2 mt-md-3 mt-lg-5 ">
+              <h3>
+                l'ecarteur : un élément clé pour la précision et l'efficacité
+              </h3>
+              <p className=" responsive-p   ">
+                <span className="fw-bold text-dark"> ECO-BOOT </span> est une
+                solution innovante de coffrage conçu pour simplifier la
+                construction de dalles réticulées.
+                <br /> Fabriqué en polystyrène,{" "}
+                <span className="fw-bold text-dark"> ECO-BOOT </span> rend les
+                planchers plus légers et plus économiques.
+                <br /> Idéal pour des projet variés,{" "}
+                <span className="fw-bold text-dark"> ECO-BOOT </span> permet aux
+                professionnels de réaliser des planchers élégants, sans
+                compromis sur la qualité ou la durabilité.
+                <br /> En offrant à la fois flexibilité et facilité
+                d’installation,{" "}
+                <span className="fw-bold text-dark"> ECO-BOOT </span> s’impose
+                comme un choix privilégie pour des constructions innovantes,
+                plus économiques et respectueuses de l’environnement.
+              </p>
+            </div>
+
+            <div className="col-12 col-md-4   mt-2 mt-md-3 mt-lg-4">
+              <img
+                src="/image/AFEC/ecarteur.png"
+                alt="ecarteur"
+                className="image-ecarteur img-fluid"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="container  mt-5             ">
+        <h3>Spécifications Techniques</h3>
+        <Tableau />
+      </div>
+      <div className="container">
+        <div className="row service-details_main-image-row">
+          <h3>Dessin Technique</h3>
+          <div className="col-6">
+            <Image
+              height={470}
+              width={470}
+              src="/image/AFEC/dessintech1.jpg"
+              alt="service image"
+            />
+          </div>
+          <div className="col-6">
+            <Image
+              height={470}
+              width={470}
+              src="/image/AFEC/dessintech2.jpg"
+              alt="service image"
+            />
+          </div>
+        </div>{" "}
+      </div>
+
+      <div className="container  mt-5             ">
+        <h3>Processus d'Installation</h3>
+        <Etape />
+      </div>
+      <div className="container ">
+        <div className="row justify-content-center       ">
+          <div className="  col-lg-8">
+            {" "}
+            <h3>Certifications d’ECO-BOOT </h3>
+            <ul className="list-style-bullet">
+              {certif.map((item, index) => (
+                <li key={index} className="">
+                  <p>
+                    <strong>{item.title}</strong> : {item.description}
+                  </p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div className="container mt-5">
+        <div className="row justify-content-center">
+          <div className="col-lg-8">
+            <h3>Saviez-vous?</h3>
+            <p>
+              Le système <span className="fw-bold text-dark"> ECO-BOOT </span>{" "}
+              réduit le poids total de la dalle de 30 %, allégeant ainsi la
+              structure porteuse et diminuant l'empreinte carbone du projet de
+              construction. Cette réduction du poids permet également des
+              économies importantes en matériaux et en coûts de fondation, tout
+              en améliorant la durabilité du bâtiment.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }

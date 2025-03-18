@@ -5,7 +5,7 @@ function DepartementRecherche() {
   return (
     <div className="container-departement">
       <div className=" container      ">
-        <div className="d-flex  align-items-center  flex-column  flex-md-row  container  section-departement                 ">
+        <div className="d-flex    align-items-center  align-items-md-start                    flex-column  flex-md-row  container  section-departement                 ">
           {" "}
           <Image
             src="/image/AFEC/departement-recherche.jpg"
@@ -13,18 +13,18 @@ function DepartementRecherche() {
             height={250}
             className="img-fluid  image-departement        "
           />
-          <div className="text-center hero-departement d-flex  flex-column   gap-3  mt-3    text-md-start    ">
+          <div className="hero-departement d-flex  flex-column   gap-3      text-md-start    ">
             <h3>Département Recherche & Développement </h3>
-            <h6>""Passeur de technologies vers l'industrie du futur"</h6>
+            <h4>""Passeur de technologies vers l'industrie du futur"</h4>
             <p className="aaa        ">
               Ce pôle stratégique développe des innovations opérationnelles et
               brevetables, en synergie étroite avec le Génie Civil.
               <br />
               Il a perfectionné les systèmes{" "}
-              <span className="fw-bold   "> POLY-BOOT™ </span> et{" "}
-              <span className="fw-bold   "> ECO-BOOT™ </span> , et créé des
-              outils pragmatiques comme la{" "}
-              <span className="fw-bold   ">
+              <span className="fw-bold text-dark  "> POLY-BOOT™ </span> et{" "}
+              <span className="fw-bold text-dark"> ECO-BOOT™ </span> , et créé
+              des outils pragmatiques comme la{" "}
+              <span className="fw-bold text-dark  ">
                 {" "}
                 CALCULETTE VITESSE DE COULAGE®
               </span>
@@ -33,14 +33,6 @@ function DepartementRecherche() {
               techno-environnementale active.
             </p>
           </div>
-        </div>
-        <div className="text-center d-flex flex-column gap-4 mt-5 mb-5    ">
-          <h3>Réservez votre consultation </h3>
-          <h1>
-            De l'esquisse à la réalisation : des constructions sûres, durables
-            et innovantes
-          </h1>
-          <h3>Passons à l'action</h3>
         </div>
       </div>
     </div>

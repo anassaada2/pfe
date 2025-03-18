@@ -20,7 +20,7 @@ export default function Award({ style }) {
       </div>
       <div className="container">
         <div className="section-heading text-center mb-res-60">
-          <span className="subtitle">nos réalisations</span>
+          <span className="anas-title text-uppercase ">nos réalisations</span>
           <h2 className="section-heading__title heading-md">
             Réalisations Inspirantes
           </h2>

@@ -1,17 +1,30 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Landmark, ClipboardCheck, BarChart3, Lightbulb } from "lucide-react";
+import { Ruler, ClipboardCheck, Fireplace, Lightbulb } from "lucide-react";
+import { Flame, Rocket } from "lucide-react";
 
 export default function ServiceCard({ data }) {
   return (
     <div className="service-card h-100">
       <div className="service-card__icon">
-        {data.icon === "Landmark" && <Landmark size={100} color="yellow " />}
-        {data.icon === "ClipboardCheck" && (
-          <ClipboardCheck size={100} color="yellow " />
+        {data.icon === "Flame" && (
+          <Image
+            src="/image/AFEC/fire.jpg"
+            alt="fire "
+            width={100}
+            height={100}
+          />
         )}
-        {data.icon === "BarChart3" && <BarChart3 size={100} color="yellow " />}
+        {data.icon === "outil" && (
+          <Image
+            src="/image/AFEC/outil.png"
+            alt="fire "
+            width={100}
+            height={100}
+          />
+        )}{" "}
         {data.icon === "Lightbulb" && <Lightbulb size={100} color="yellow " />}
+        {data.icon === "Rocket" && <Rocket size={100} color="yellow " />}
       </div>
       <div className="service-card__body">
         <h3 className="service-card__title">{data.title}</h3>

@@ -17,7 +17,7 @@ const CircularTextSvg = () => {
       </defs>
       <text fontSize="14" fontFamily="Arial" fill="black">
         <textPath href="#circlePath" textLength="450">
-          - UTILISER - LE - <tspan fill="red">CALCULATEUR</tspan>
+          - DECOUVRIR - LE - <tspan fill="red">CALCULATEUR</tspan>
         </textPath>
       </text>
     </svg>

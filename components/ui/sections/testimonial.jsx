@@ -19,31 +19,9 @@ export default function Testimonial() {
         <div className="testimonial-01__slider-wrapper">
           <p className="mot-presidant"> Mot Du Présidant </p>
           <div className="testimonial-01__slider">
-            <Swiper
-              navigation={{
-                prevEl: ".ui-prev-1",
-                nextEl: ".ui-next-1",
-              }}
-              pagination={{
-                clickable: true,
-                bulletClass: "ui-custom-dot-2",
-              }}
-              modules={[Navigation, Pagination]}
-              loop={true}
-              className="ui-swipper-wrapper-2"
-            >
-              {testimonials?.map((item, i) => (
-                <SwiperSlide key={i}>
-                  <TestimonialCard data={item} />
-                </SwiperSlide>
-              ))}
-            </Swiper>
-            <button className="ui-prev ui-prev-1">
-              <i className="fa-solid fa-chevron-left" />
-            </button>
-            <button className="ui-next ui-next-1">
-              <i className="fa-solid fa-chevron-right" />
-            </button>
+            {testimonials?.map((item, i) => (
+              <TestimonialCard data={item} key={i} />
+            ))}
           </div>
         </div>
       </div>

@@ -1,8 +1,9 @@
 import d from "@/assets/plugins/highlight.js/languages/d";
+import { title } from "process";
 
 export const brands = [
   {
-    img: "/image/AFEC/mas.png",
+    img: "/image/AFEC/brand1.png",
   },
   {
     img: "/image/AFEC/brand2.png",
@@ -13,6 +14,7 @@ export const brands = [
   {
     img: "/image/AFEC/brand4.jpg",
   },
+
   {
     img: "/image/AFEC/brand5.jpg",
   },
@@ -53,32 +55,32 @@ export const brands2 = [
 
 export const services = [
   {
-    icon: "Landmark",
-    title: "Ingénierie et études techniques 🔧📐",
+    icon: "outil",
+    title: "Ingénierie et études techniques ",
     animation: 500,
     description:
-      "Nous concevons des solutions techniques performantes et optimisées pour vos projets.​ ",
-  },
-  {
-    icon: "ClipboardCheck",
-    title: "Assistance et conseil technique 💡📑️",
-    animation: 1000,
-    description:
-      "Un accompagnement expert pour optimiser vos choix techniques et garantir la réussite de vos projets. ",
-  },
-  {
-    icon: "BarChart3",
-    title: "Suivi et gestion de projet 🚨🔥",
-    animation: 1500,
-    description:
-      "Des solutions sur mesure pour assurer la conformité et la protection contre les risques incendie.",
+      "Nous concevons des solutions techniques performantes et optimisées pour vos projets ",
   },
   {
     icon: "Lightbulb",
-    title: "Recherche et Innovation 🔬🚀",
+    title: "Assistance et conseil technique ",
+    animation: 1000,
+    description:
+      "Réalisation des expertises pour evaluer la solidité de vos constructions et valider vos extensions ",
+  },
+  {
+    icon: "Flame",
+    title: "Suivi et gestion de projet ",
+    animation: 1500,
+    description:
+      "Étude des dossiers de sécurité incendie de tout type : Industrie, IGH, Hopitaux, hôtels,....",
+  },
+  {
+    icon: "Rocket",
+    title: "Recherche et Innovation ",
     animation: 500,
     description:
-      "Nous développons des solutions innovantes pour améliorer la performance et la durabilité des constructions.",
+      "Nous développons des solutions innovantes pour améliorer la performance et la durabilité des constructions",
   },
 ];
 
@@ -240,21 +242,6 @@ excellence, innovation et durabilité. Mon engagement est de garantir un accompa
 de qualité à nos clients, tout en développant des solutions à la pointe de la technologie pour
 répondre aux défis de demain"`,
     name: "FONDATEUR - AYMEN FENDRI",
-  },
-  {
-    icon: "/image/home-1/icon-quote.svg",
-    quote: `"Diam sollicitudin tempor id eu nisl nunc. Tristique senectus et netus et malesuada fames ac turpis egestas. Sed cras ornare arcu dui vivamus."`,
-    name: "Builder - Mark Donnel",
-  },
-  {
-    icon: "/image/home-1/icon-quote.svg",
-    quote: `"Diam sollicitudin tempor id eu nisl nunc. Tristique senectus et netus et malesuada fames ac turpis egestas. Sed cras ornare arcu dui vivamus."`,
-    name: "Builder - Mark Donnel",
-  },
-  {
-    icon: "/image/home-1/icon-quote.svg",
-    quote: `"Diam sollicitudin tempor id eu nisl nunc. Tristique senectus et netus et malesuada fames ac turpis egestas. Sed cras ornare arcu dui vivamus."`,
-    name: "Builder - Mark Donnel",
   },
 ];
 
@@ -614,5 +601,108 @@ export const TimelineMois = [
     img: "/image/AFEC/icon.png",
     titre: "CREATION DU DEPARTEMENT RECHERCHE ET DEVELOPPEMENT",
     description: "",
+  },
+];
+
+export const avantages = [
+  {
+    titre: "Liberté de conception",
+    description:
+      "Offrant une flexibilité totale aux architectes pour concevoir des structures innovantes et optimisées.",
+  },
+  {
+    titre: "Grande portée jusqu’à 15 m",
+    description:
+      "Permettant de réduire la nécessité de supports supplémentaires et d’élargir les possibilités de conception.",
+  },
+  {
+    titre: "Facilité et rapidité de pose",
+    description:
+      "Garantissant une installation rapide qui permet de respecter les délais de construction.",
+  },
+  {
+    titre: "Bonnes performances acoustiques et thermiques",
+    description:
+      "Offrant un confort intérieur optimal en réduisant les nuisances sonores et en améliorant l’isolation thermique.",
+  },
+  {
+    titre: "Élimination des retombées de poutres",
+    description:
+      "Maximisant l’espace utilisable tout en simplifiant la conception de la structure.",
+  },
+  {
+    titre: "Économie des coûts et des délais de construction",
+    description:
+      "Grâce à un système efficace qui réduit le temps de travail et les coûts d’installation.",
+  },
+  {
+    titre: "Moins de consommation de béton (entre 30 et 50 %)",
+    description:
+      "Permettant de réaliser des économies importantes en matériaux tout en respectant les normes de construction.",
+  },
+  {
+    titre: "Moins de consommation d’armatures (entre 15 et 25 %)",
+    description:
+      "Réduisant les coûts des matériaux et contribuant à un meilleur respect des budgets.",
+  },
+  {
+    titre: "Charge plus faible sur les poteaux et les fondations",
+    description:
+      "Améliorant la stabilité de la structure et réduisant les besoins en fondations renforcées.",
+  },
+  {
+    titre: "Simplification de l’installation des lots spéciaux",
+    description:
+      "Facilitant l’intégration des systèmes électriques et de plomberie grâce à un design adaptable.",
+  },
+  {
+    titre: "Optimisation sur la quantité du béton armé",
+    description:
+      "Permettant une gestion plus précise des ressources, réduisant les excédents et les gaspillages.",
+  },
+];
+
+export const certif = [
+  {
+    title: "Classement au Feu",
+    description:
+      "Le polystyrène expansé utilisé appartient à la classe E (Euroclasse) et est renforcé par des retardateurs de flamme, ce qui le rend non propagateur de fumée.",
+  },
+  {
+    title: "Conductivité Thermique",
+    description:
+      "Une performance thermique exceptionnelle avec une valeur de 0,03313 W/mK à 10 °C, assurant une ecacité énergétique optimale.",
+  },
+  {
+    title: "Résistance au poinçonnement",
+    description:
+      "Les caissons en polystyrène offrent une résistance au poinçonnement par flexion supérieure à 150 kg/m3, garantissant ainsi une sécurité optimale pour les ouvriers pendant la phase d'exécution.",
+  },
+];
+
+export const etape = [
+  {
+    step: "1/",
+    fr: "Préparation du coffrage",
+    descriptionFr:
+      "Positionner les blocs en polystyrène et les écarteurs en béton.",
+  },
+  {
+    step: "2/",
+    fr: "Ferraillage principal",
+    descriptionFr:
+      "Installer les armatures longitudinales et transversales, ainsi que les barres bateau.",
+  },
+  {
+    step: "3/",
+    fr: "Renforts spécifiques",
+    descriptionFr:
+      "Mettre en place les renforts aux poteaux et les armatures pour efforts tranchants.",
+  },
+  {
+    step: "4/",
+    fr: "Pose finale",
+    descriptionFr:
+      "Ajouter les treillis soudés pour la chape de compression et lier les nappes inférieures et supérieures.",
   },
 ];
