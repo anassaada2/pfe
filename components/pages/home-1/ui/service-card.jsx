@@ -31,13 +31,13 @@ export default function ServiceCard({ data }) {
         <p>{data.description}</p>
       </div>
       <div className="service-card__footer">
-        <Link
+        {/*    <Link
           href="/service-details"
           className="btn btn-primary btn-small w-100 space-between hvr-fill-black"
         >
           voir details
           <i className="fa-solid fa-arrow-right icon-arrow-corner" />
-        </Link>
+        </Link>*/}
       </div>
     </div>
   );

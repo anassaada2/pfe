@@ -65,7 +65,7 @@ export default function Footer() {
           <div className="col-xl-4 col-lg-5 col-md-8">
             <div className="footer-section__content-block">
               <div className="footer-section__content-text">
-                <div className="footer-brand">
+                {/* <div className="footer-brand">
                   <Image
                     height={57}
                     width={57}
@@ -74,7 +74,7 @@ export default function Footer() {
                     className="h-auto"
                   />
                   <span>AFEC</span>
-                </div>
+                </div> */}
                 <p>
                   <span className="afec-span"> AFEC</span> est un bureau
                   d'études et de développement spécialisé dans l’ingénierie et

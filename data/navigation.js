@@ -21,11 +21,11 @@ export default [
         dropdown: [
           {
             label: "ECO-BOOT",
-            url: "/service",
+            url: "/service-details",
           },
           {
             label: "POLY-BOOT",
-            url: "/service-details",
+            url: "/service-details/poly-boot",
           },
         ],
       },

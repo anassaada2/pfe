@@ -1,9 +1,13 @@
 import C from "@/assets/plugins/highlight.js/languages/1c";
 import CircularTextSvg from "@/components/ui/circularText/CircularTextSvg";
+import { authOptions } from "@/lib/nextAuth";
+import { getServerSession } from "next-auth";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function Hero() {
+export default async function Hero() {
+  const session = await getServerSession(authOptions);
+  console.log(session);
   return (
     <section className="hero-section-01 bg-black">
       <div className="container">
@@ -18,6 +22,7 @@ export default function Hero() {
                 spécialisé dans l’ingénierie et les études de projets complexes
                 de génie civil et de sécurité incendie
               </p>
+              <p></p>
             </div>
           </div>
         </div>

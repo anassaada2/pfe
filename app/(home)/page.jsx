@@ -19,12 +19,12 @@ export default function Home() {
     <>
       <Header />
       <Hero />
-      <Brand />
+      {/*    <Brand />
+       */}{" "}
       <Service />
       <About />
       <Philosophie />
       {/*              <Philosophy /> */}
-
       <Testimonial />
       <Departement />
       <DepartementRecherche />

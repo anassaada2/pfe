@@ -2,7 +2,9 @@ import Image from "next/image";
 import { avantages, etape, certif } from "@/data/site";
 import Tableau from "./Tableau";
 import Etape from "./Etape";
-export default function ServiceDetail() {
+import TableauPolyBoot from "./TableauPolyBoot";
+
+function PolyBoot() {
   return (
     <div className="service-details_main-section section-padding-140 single-page-content">
       <div className="container">
@@ -31,7 +33,7 @@ export default function ServiceDetail() {
               l'entreprise intègre des technologies avancées pour relever les
               défis environnementaux actuels.
               <br /> Fort de ce partenariat, nous introduisons aujourd’hui{" "}
-              <strong>ECO BOOT</strong> , une réponse innovante aux défis de la
+              <strong>POLY BOOT</strong> , une réponse innovante aux défis de la
               construction moderne.
             </p>
           </div>
@@ -41,44 +43,36 @@ export default function ServiceDetail() {
                 <Image
                   height={270}
                   width={170}
-                  src="/image/AFEC/ecoboot1.jpg"
+                  src="/image/AFEC/polyboot1.jpg"
                   alt="service image"
-                  className=""
                 />
               </div>
               <div className="col-6">
                 <Image
                   height={270}
                   width={170}
-                  src="/image/AFEC/ecoboot2.jpg"
+                  src="/image/AFEC/polyboot2.jpg"
                   alt="service image"
-                  className=""
                 />
               </div>
             </div>
-          </div>
+          </div>{" "}
           <div className="">
-            <h3>A PROPOS ECO-BOOT</h3>
+            <h3>A PROPOS POLY-BOOT</h3>
             <p>
-              <span className="fw-bold text-dark"> ECO-BOOT </span> est une
-              solution innovante de coffrage conçu pour simplifier la
-              construction de dalles réticulées.
-              <br /> Fabriqué en polystyrène,{" "}
-              <span className="fw-bold text-dark"> ECO-BOOT </span> rend les
-              planchers plus légers et plus économiques.
-              <br /> Idéal pour des projet variés,
-              <span className="fw-bold text-dark"> ECO-BOOT </span> permet aux
-              professionnels de réaliser des planchers élégants, sans compromis
-              sur la qualité ou la durabilité.
-              <br /> En offrant à la fois flexibilité et facilité
-              d’installation,{" "}
-              <span className="fw-bold text-dark"> ECO-BOOT </span> s’impose
-              comme un choix privilégie pour des constructions innovantes, plus
-              économiques et respectueuses de l’environnement.
+              <strong> POLY-BOOT </strong> est un système de coffrage perdu en
+              polystyrène destiné aux dalles réticulées en béton armé.
+              <br /> Il permet de réduire l'utilisation de béton et d'acier tout
+              en améliorant la capacité de charge et la résistance au feu.
+              <br /> Conçu pour éviter les poutres apparentes, il facilite
+              l'installation et offre une meilleure finition esthétique.
+              <br /> <strong> POLY-BOOT </strong> se distingue par son
+              optimisation structurelle et ses économies sur les matériaux, tout
+              en répondant aux normes de construction modernes.
             </p>
           </div>
           <div className=" mt-5 ">
-            <h3>Avantages d’ECO-BOOT</h3>
+            <h3>Avantages de POLY-BOOT</h3>
             <ul className="list-style-bullet">
               {avantages.map((item, index) => (
                 <li key={index} className="">
@@ -99,19 +93,19 @@ export default function ServiceDetail() {
                 l'ecarteur : un élément clé pour la précision et l'efficacité
               </h3>
               <p className=" responsive-p   ">
-                <span className="fw-bold text-dark"> ECO-BOOT </span> est une
+                <span className="fw-bold text-dark"> POLY-BOOT </span> est une
                 solution innovante de coffrage conçu pour simplifier la
                 construction de dalles réticulées.
                 <br /> Fabriqué en polystyrène,{" "}
-                <span className="fw-bold text-dark"> ECO-BOOT </span> rend les
+                <span className="fw-bold text-dark"> POLY-BOOT </span> rend les
                 planchers plus légers et plus économiques.
                 <br /> Idéal pour des projet variés,{" "}
-                <span className="fw-bold text-dark"> ECO-BOOT </span> permet aux
-                professionnels de réaliser des planchers élégants, sans
+                <span className="fw-bold text-dark"> POLY-BOOT </span> permet
+                aux professionnels de réaliser des planchers élégants, sans
                 compromis sur la qualité ou la durabilité.
                 <br /> En offrant à la fois flexibilité et facilité
                 d’installation,{" "}
-                <span className="fw-bold text-dark"> ECO-BOOT </span> s’impose
+                <span className="fw-bold text-dark"> POLY-BOOT </span> s’impose
                 comme un choix privilégie pour des constructions innovantes,
                 plus économiques et respectueuses de l’environnement.
               </p>
@@ -129,7 +123,7 @@ export default function ServiceDetail() {
       </div>
       <div className="container  mt-5             ">
         <h3>Spécifications Techniques</h3>
-        <Tableau />
+        <TableauPolyBoot />
       </div>
       <div className="container">
         <div className="row service-details_main-image-row">
@@ -138,7 +132,7 @@ export default function ServiceDetail() {
             <Image
               height={470}
               width={470}
-              src="/image/AFEC/dessintech1.jpg"
+              src="/image/AFEC/poly-dessin2.jpg"
               alt="service image"
             />
           </div>
@@ -146,7 +140,7 @@ export default function ServiceDetail() {
             <Image
               height={470}
               width={470}
-              src="/image/AFEC/dessintech2.jpg"
+              src="/image/AFEC/poly-dessin.jpg"
               alt="service image"
             />
           </div>
@@ -161,7 +155,7 @@ export default function ServiceDetail() {
         <div className="row       ">
           <div className="  ">
             {" "}
-            <h3>Certifications d’ECO-BOOT </h3>
+            <h3>Certifications de POLY-BOOT </h3>
             <ul className="list-style-bullet">
               {certif.map((item, index) => (
                 <li key={index} className="">
@@ -179,12 +173,13 @@ export default function ServiceDetail() {
           <div className="">
             <h3>Saviez-vous?</h3>
             <p>
-              Le système <span className="fw-bold text-dark"> ECO-BOOT </span>{" "}
-              réduit le poids total de la dalle de 30 %, allégeant ainsi la
-              structure porteuse et diminuant l'empreinte carbone du projet de
-              construction. Cette réduction du poids permet également des
-              économies importantes en matériaux et en coûts de fondation, tout
-              en améliorant la durabilité du bâtiment.
+              Les modules <span className="fw-bold text-dark">POLY-BOOT</span>{" "}
+              permettent non seulement une économie de béton allant jusqu’à 40
+              %, mais aussi une réduction des armatures de 10 à 15 %, tout en
+              augmentant les portées des dalles jusqu’à 15 mètres.
+              <br /> Grâce à leur légèreté et leur conception innovante, ils
+              offrent une alternative durable et économique pour les projets de
+              construction modernes.
             </p>
           </div>
         </div>
@@ -192,3 +187,5 @@ export default function ServiceDetail() {
     </div>
   );
 }
+
+export default PolyBoot;

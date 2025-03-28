@@ -26,9 +26,12 @@ export default function Award({ style }) {
           </h2>
         </div>
         <div className="award-content-wrapper">
-          {awards?.map((item, i) => (
-            <AwardWidget key={i} data={item} />
-          ))}
+          {awards
+            ?.slice()
+            .reverse()
+            .map((item, i) => (
+              <AwardWidget key={i} data={item} />
+            ))}
         </div>
       </div>
     </div>
