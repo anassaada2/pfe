@@ -1,5 +1,23 @@
 import d from "@/assets/plugins/highlight.js/languages/d";
 import { title } from "process";
+import {
+  MdDashboard,
+  MdSupervisedUserCircle,
+  MdShoppingBag,
+  MdAttachMoney,
+  MdWork,
+  MdAnalytics,
+  MdPeople,
+  MdOutlineSettings,
+  MdHelpCenter,
+  MdBuild,
+  MdFolder,
+  MdCalculate,
+  MdOutlineBarChart,
+  MdMiscellaneousServices,
+  MdInfo,
+  MdContactMail,
+} from "react-icons/md";
 
 export const brands = [
   {
@@ -704,5 +722,105 @@ export const etape = [
     fr: "Pose finale",
     descriptionFr:
       "Ajouter les treillis soudés pour la chape de compression et lier les nappes inférieures et supérieures.",
+  },
+];
+export const menuItemsDashboard = [
+  {
+    title: "Pages",
+    list: [
+      {
+        title: "Dashboard",
+        path: "/dashboard",
+        icon: <MdDashboard />,
+      },
+      {
+        title: "Users",
+        path: "/dashboard/users",
+        icon: <MdSupervisedUserCircle />,
+      },
+      {
+        title: "Products",
+        path: "/dashboard/products",
+        icon: <MdShoppingBag />,
+      },
+
+      {
+        title: "Services",
+        path: "/dashboard/services",
+        icon: <MdMiscellaneousServices />,
+      },
+      {
+        title: "Solutions",
+        path: "/dashboard/solutions",
+        icon: <MdBuild />,
+      },
+      {
+        title: "Fichiers utiles",
+        path: "/dashboard/files",
+        icon: <MdFolder />,
+      },
+      {
+        title: "Calculateur",
+        path: "/dashboard/calculateur",
+        icon: <MdCalculate />,
+      },
+
+      {
+        title: "Contact",
+        path: "/dashboard/contact",
+        icon: <MdContactMail />,
+      },
+    ],
+  },
+  {
+    title: "Analytics",
+    list: [
+      {
+        title: "Statistiques",
+        path: "/dashboard/statistiques",
+        icon: <MdOutlineBarChart />,
+      },
+
+      {
+        title: "Teams",
+        path: "/dashboard/teams",
+        icon: <MdPeople />,
+      },
+    ],
+  },
+  {
+    title: "User",
+    list: [
+      {
+        title: "Settings",
+        path: "/dashboard/settings",
+        icon: <MdOutlineSettings />,
+      },
+      {
+        title: "Help",
+        path: "/dashboard/help",
+        icon: <MdHelpCenter />,
+      },
+    ],
+  },
+];
+export const cards = [
+  {
+    id: 1,
+    title: "Total Users",
+    number: 10.928,
+    change: 12,
+  },
+  {
+    id: 2,
+    title: "Statistiques",
+    number: 8.236,
+    change: -2,
+  },
+  {
+    id: 3,
+    title: "Revenue",
+    number: 6.642,
+    change: 18,
   },
 ];

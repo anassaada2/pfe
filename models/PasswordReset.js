@@ -5,7 +5,7 @@ const passwordResetSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     required: true,
   },
-  code: Number,
+  code: String,
   expiresAt: Date,
 });
 

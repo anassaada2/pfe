@@ -6,6 +6,8 @@ import toast, { Toaster } from "react-hot-toast";
 import Link from "next/link";
 import Image from "next/image";
 import { signIn } from "next-auth/react";
+import { Facebook, Globe } from "lucide-react";
+import { useSession } from "next-auth/react";
 
 const loginSchema = z.object({
   email: z.string().email("Email invalide"),
@@ -15,6 +17,8 @@ const loginSchema = z.object({
 });
 
 export default function Login() {
+  const { data: session, status } = useSession();
+  console.log("SESSION CLIENT:", session);
   const router = useRouter();
   const [form, setForm] = useState({ email: "", password: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -70,7 +74,7 @@ export default function Login() {
       <Toaster position="top-center" />
 
       <div className="row vh-100 justify-content-center align-items-center">
-        <div className="col-md-6 d-flex justify-content-center align-items-center bg-light text-center flex-column mt-5">
+        <div className="col-md-6 d-flex justify-content-center align-items-center text-center flex-column mb-5 ">
           <h1 className="display-4 fw-bold">Content de vous revoir !</h1>
           <Image
             src="/image/AFEC/logo.png"
@@ -126,26 +130,25 @@ export default function Login() {
             <div className="mt-3 text-center">
               <span>Ou connectez-vous avec</span>
             </div>
-
             <div className="d-flex gap-2 mt-3">
               <button
                 onClick={(e) => handleSocialLogin("google", e)}
-                className="btn btn-outline-danger w-50"
+                className="btn btn-outline-danger w-50 d-flex align-items-center justify-content-center gap-2 shadow-lg rounded-4 "
                 disabled={isSubmitting}
               >
-                Google
+                <Globe size={18} /> Google
               </button>
               <button
                 onClick={(e) => handleSocialLogin("facebook", e)}
-                className="btn btn-outline-primary w-50"
+                className="btn btn-outline-primary w-50 d-flex align-items-center justify-content-center gap-2 shadow-lg rounded-4"
                 disabled={isSubmitting}
               >
-                Facebook
+                <Facebook size={18} /> Facebook
               </button>
             </div>
 
             <div className="mt-3 text-center">
-              <span>Pas de compte ? </span>
+              <span>Pas de compte ?&nbsp; </span>
               <Link href="/auth/register" className="text-decoration-none">
                 S'inscrire
               </Link>

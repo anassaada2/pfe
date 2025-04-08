@@ -1,18 +1,21 @@
 import { getToken } from "next-auth/jwt";
 import { NextResponse } from "next/server";
-
+import { NextRequest } from "next/server";
 export async function middleware(req) {
   const { pathname } = req.nextUrl;
-  const protectedPaths = ["/dashboard"];
+
+  // Liste des routes protégées
+  const protectedPaths = ["/dashboarda"];
   const isProtected = protectedPaths.some((path) => pathname.startsWith(path));
 
   if (isProtected) {
-    const token = await getToken({ req });
+    const token = await getToken({ req, secret: process.env.NEXTAUTH_SECRET });
 
     if (!token) {
-      const url = new URL("/auth/login", req.url);
-      url.searchParams.set("callbackUrl", req.url);
-      return NextResponse.redirect(url);
+      const loginUrl = req.nextUrl.clone();
+      loginUrl.pathname = "/auth/login";
+      loginUrl.searchParams.set("callbackUrl", req.nextUrl.pathname);
+      return NextResponse.redirect(loginUrl);
     }
   }
 

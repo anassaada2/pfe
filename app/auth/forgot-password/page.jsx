@@ -36,7 +36,7 @@ export default function ForgotPassword() {
 
       // Redirection pour le SMS
       if (method === "phone" && data.phone) {
-        router.push(`/reset-password/${data.phone}`);
+        router.push(`/auth/verify-code`);
       }
 
       toast.success(
@@ -53,7 +53,10 @@ export default function ForgotPassword() {
     <div className="container-fluid">
       <Toaster position="top-center" />
       <div className="row vh-100 justify-content-center align-items-center">
-        <div className="col-md-6 bg-light text-center p-5">
+        <div className="col-md-6  text-center p-5 d-flex flex-column justify-content-center align-items-center       ">
+          <h1 className="display-5 fw-bold  ">
+            Réinitialisation de mot de passe
+          </h1>
           <Image
             src="/image/AFEC/logo.png"
             width={400}
@@ -61,9 +64,6 @@ export default function ForgotPassword() {
             alt="Logo"
             className="mb-4"
           />
-          <h1 className="display-5 fw-bold">
-            Réinitialisation de mot de passe
-          </h1>
         </div>
 
         <div className="col-md-6 p-5">
@@ -114,7 +114,7 @@ export default function ForgotPassword() {
             </button>
 
             <div className="text-center">
-              <Link href="/login" className="text-decoration-none">
+              <Link href="/auth/login" className="text-decoration-none">
                 ← Retour à la connexion
               </Link>
             </div>

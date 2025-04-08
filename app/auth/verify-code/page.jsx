@@ -32,7 +32,7 @@ export default function VerifyCode() {
       if (!res.ok) throw new Error(data.error || "Erreur serveur");
 
       toast.success("Code vérifié avec succès !");
-      router.push(`auth/reset-password/${data.token_reset}`);
+      router.push(`reset-password/${data.token_reset}`);
     } catch (err) {
       toast.error(err.message);
     } finally {

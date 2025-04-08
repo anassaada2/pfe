@@ -71,7 +71,7 @@ export default function SignUp() {
       />
 
       <div className="row vh-100 justify-content-center align-items-center">
-        <div className="col-md-6 d-flex justify-content-center align-items-center bg-light text-center flex-column mt-5">
+        <div className="col-md-6 d-flex justify-content-center align-items-center text-center flex-column mb-4">
           <h1 className="display-4 fw-bold">Bienvenue !</h1>
           <Image
             src="/image/AFEC/logo.png"
@@ -124,7 +124,7 @@ export default function SignUp() {
               S'inscrire
             </button>
             <div className="mt-3 text-center">
-              <span>Déja j'ai un compte ? </span>
+              <span>Déja j'ai un compte ? &nbsp; </span>
               <Link href="/auth/login     " className="text-decoration-none">
                 Se connecter
               </Link>
