@@ -47,7 +47,7 @@ export default function SignUp() {
         throw new Error(data.error || "Erreur lors de l'inscription");
 
       toast.success("Inscription réussie !");
-      setTimeout(() => router.push("/login"), 1000);
+      setTimeout(() => router.push("/auth/login"), 1000);
     } catch (err) {
       if (err instanceof z.ZodError) {
         err.errors.forEach((error) => toast.error(error.message));

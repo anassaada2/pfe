@@ -6,8 +6,6 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default async function Hero() {
-  const session = await getServerSession(authOptions);
-  console.log(session);
   return (
     <section className="hero-section-01 bg-black">
       <div className="container">

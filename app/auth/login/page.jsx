@@ -5,6 +5,7 @@ import { z } from "zod";
 import toast, { Toaster } from "react-hot-toast";
 import Link from "next/link";
 import Image from "next/image";
+import { signIn } from "next-auth/react";
 
 const loginSchema = z.object({
   email: z.string().email("Email invalide"),
@@ -16,29 +17,51 @@ const loginSchema = z.object({
 export default function Login() {
   const router = useRouter();
   const [form, setForm] = useState({ email: "", password: "" });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsSubmitting(true);
 
     try {
       loginSchema.parse(form);
-      const res = await fetch("/api/auth/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
+
+      const result = await signIn("credentials", {
+        email: form.email,
+        password: form.password,
+        redirect: false,
       });
 
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.error || "Erreur de connexion");
+      if (result?.error) {
+        throw new Error(result.error);
+      }
 
       toast.success("Connexion réussie !");
-      setTimeout(() => router.push("/dashboard"), 1000);
+      router.push("/");
     } catch (err) {
+      toast.dismiss(); // Supprime les anciens toasts pour éviter les doublons
       if (err instanceof z.ZodError) {
         err.errors.forEach((error) => toast.error(error.message));
       } else {
-        toast.error(err.message);
+        toast.error(err.message || "Erreur de connexion");
       }
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const handleSocialLogin = async (provider, e) => {
+    e.preventDefault(); // Empêcher l'événement par défaut pour éviter la double soumission
+    setIsSubmitting(true);
+
+    try {
+      const result = await signIn(provider, { callbackUrl: "/" });
+      if (result?.error) throw new Error(result.error);
+    } catch (err) {
+      toast.dismiss();
+      toast.error(err.message || "Erreur de connexion");
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -66,7 +89,9 @@ export default function Login() {
                 type="email"
                 className="form-control"
                 placeholder="Email"
+                value={form.email}
                 onChange={(e) => setForm({ ...form, email: e.target.value })}
+                disabled={isSubmitting}
               />
             </div>
             <div className="mb-3">
@@ -75,23 +100,53 @@ export default function Login() {
                 type="password"
                 className="form-control"
                 placeholder="Mot de passe"
+                value={form.password}
                 onChange={(e) => setForm({ ...form, password: e.target.value })}
+                disabled={isSubmitting}
               />
             </div>
 
             <div className="mb-3 text-end">
-              <Link href="/forgot-password" className="text-decoration-none">
+              <Link
+                href="/auth/forgot-password"
+                className="text-decoration-none"
+              >
                 Mot de passe oublié ?
               </Link>
             </div>
 
-            <button type="submit" className="btn btn-primary w-100">
-              Se connecter
+            <button
+              type="submit"
+              className="btn btn-primary w-100"
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? "Connexion..." : "Se connecter"}
             </button>
 
             <div className="mt-3 text-center">
+              <span>Ou connectez-vous avec</span>
+            </div>
+
+            <div className="d-flex gap-2 mt-3">
+              <button
+                onClick={(e) => handleSocialLogin("google", e)}
+                className="btn btn-outline-danger w-50"
+                disabled={isSubmitting}
+              >
+                Google
+              </button>
+              <button
+                onClick={(e) => handleSocialLogin("facebook", e)}
+                className="btn btn-outline-primary w-50"
+                disabled={isSubmitting}
+              >
+                Facebook
+              </button>
+            </div>
+
+            <div className="mt-3 text-center">
               <span>Pas de compte ? </span>
-              <Link href="/auth/register     " className="text-decoration-none">
+              <Link href="/auth/register" className="text-decoration-none">
                 S'inscrire
               </Link>
             </div>
