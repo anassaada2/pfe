@@ -123,7 +123,7 @@ function PolyBoot() {
       </div>
       <div className="container  mt-5             ">
         <h3>Spécifications Techniques</h3>
-        <TableauPolyBoot />
+        {/*<TableauPolyBoot />  */}
       </div>
       <div className="container">
         <div className="row service-details_main-image-row">
@@ -149,7 +149,7 @@ function PolyBoot() {
 
       <div className="container  mt-5             ">
         <h3>Processus d'Installation</h3>
-        <Etape />
+        {/* <Etape />*/}
       </div>
       <div className="container ">
         <div className="row       ">

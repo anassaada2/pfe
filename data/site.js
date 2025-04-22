@@ -756,7 +756,7 @@ export const menuItemsDashboard = [
       },
       {
         title: "Fichiers utiles",
-        path: "/dashboard/files",
+        path: "/dashboard/fiches-techniques",
         icon: <MdFolder />,
       },
       {

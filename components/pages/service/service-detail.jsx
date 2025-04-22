@@ -155,7 +155,7 @@ export default function ServiceDetail() {
 
       <div className="container  mt-5             ">
         <h3>Processus d'Installation</h3>
-        <Etape />
+        {/* <Etape />*/}
       </div>
       <div className="container ">
         <div className="row       ">
