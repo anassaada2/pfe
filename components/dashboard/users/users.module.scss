@@ -60,3 +60,33 @@
 .delete {
   background-color: crimson;
 }
+.excelContainer {
+  position: relative;
+}
+
+.excelLink {
+  text-decoration: none;
+  color: #007bff; /* Couleur du lien */
+  font-weight: bold;
+  padding-right: 20px; /* Espacement pour l'icône de suppression */
+}
+
+.deleteButton {
+  display: none; /* Masquer par défaut l'icône de suppression */
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: none;
+  border: none;
+  color: red;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.excelContainer:hover .deleteButton {
+  display: block; /* Afficher l'icône de suppression au survol */
+}
+
+.deleteButton:hover {
+  color: darkred; /* Changer la couleur au survol */
+}

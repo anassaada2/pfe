@@ -4,7 +4,6 @@ import { useState } from "react";
 import { toast } from "react-hot-toast";
 import { z } from "zod";
 import { addSolution } from "@/lib/actions";
-
 const solutionSchema = z.object({
   name: z.string().min(2, "Le nom est requis"),
   description: z.string().min(5, "La description est trop courte"),
@@ -54,6 +53,17 @@ export default function FormAddSolution() {
     titre: "",
     description: "",
   });
+  const [specifications, setSpecifications] = useState([]);
+  const [showSpecModal, setShowSpecModal] = useState(false);
+  const [newSpec, setNewSpec] = useState({ label: "", value: "" });
+  const [showProcessusModal, setShowProcessusModal] = useState(false);
+  const [newProcessus, setNewProcessus] = useState({
+    etape: 0,
+    titre: "",
+    description: "",
+  });
+  const [processusInstallation, setProcessusInstallation] = useState([]);
+
   const handleUpload = async (file, onSuccess) => {
     if (!file) return;
     setIsUploading(true);
@@ -82,14 +92,6 @@ export default function FormAddSolution() {
     }
   };
 
-  const parseTextareaJSON = (value) => {
-    try {
-      return JSON.parse(value || "[]");
-    } catch {
-      return [];
-    }
-  };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     const form = new FormData(e.target);
@@ -100,15 +102,13 @@ export default function FormAddSolution() {
       avantages: avantages,
       images: imageUrls,
       ecarteur: form.get("ecarteur"),
-      specifications: parseTextareaJSON(form.get("specifications")),
+      specifications: specifications,
       dessinTechnique: {
         sectionBlocs: dessinBlocsUrl,
         sectionDalle: dessinDalleUrl,
       },
       pdf: pdfUrl,
-      processusInstallation: parseTextareaJSON(
-        form.get("processusInstallation")
-      ),
+      processusInstallation: processusInstallation,
       certifications: certifications,
       saviezVous: form.get("saviezVous"),
     };
@@ -207,67 +207,126 @@ export default function FormAddSolution() {
       </div>
 
       <div className="mb-3">
-        <label>Spécifications (format JSON)</label>
-        <textarea
-          className="form-control"
-          name="specifications"
-          placeholder='[{"label":"...","value":"..."}]'
-        />
-      </div>
-
-      <div className="mb-3">
-        <label>Dessin Technique - Section Blocs</label>
-        <input
-          type="file"
-          onChange={(e) => handleUpload(e.target.files?.[0], setDessinBlocsUrl)}
-        />
-        {dessinBlocsUrl && (
-          <img
-            src={dessinBlocsUrl}
-            alt="bloc"
-            className="img-thumbnail mt-2"
-            width={150}
-          />
+        <label>Spécifications</label>
+        <div className="d-flex justify-content-between align-items-center mb-2">
+          <button
+            type="button"
+            className="btn btn-outline-primary btn-sm"
+            onClick={() => setShowSpecModal(true)}
+          >
+            + Ajouter une spécification
+          </button>
+        </div>
+        {specifications.length > 0 && (
+          <ul className="list-group">
+            {specifications.map((s, index) => (
+              <li
+                key={index}
+                className="list-group-item d-flex justify-content-between"
+              >
+                <div>
+                  <strong>{s.label}</strong>: {s.value}
+                </div>
+                <button
+                  type="button"
+                  className="btn btn-sm btn-danger"
+                  onClick={() =>
+                    setSpecifications(
+                      specifications.filter((_, i) => i !== index)
+                    )
+                  }
+                >
+                  Supprimer
+                </button>
+              </li>
+            ))}
+          </ul>
         )}
       </div>
 
-      <div className="mb-3">
-        <label>Dessin Technique - Section Dalle</label>
-        <input
-          type="file"
-          onChange={(e) => handleUpload(e.target.files?.[0], setDessinDalleUrl)}
-        />
-        {dessinDalleUrl && (
-          <img
-            src={dessinDalleUrl}
-            alt="dalle"
-            className="img-thumbnail mt-2"
-            width={150}
-          />
-        )}
+      <div className="mt-5 border">
+        <h6 className="mt-4 mb-3 fs-5">Dessin Technique</h6>
+        <div className="row mb-3">
+          <div className="col-md-6">
+            <label>Dessin Technique - Section Blocs</label>
+            <input
+              type="file"
+              className="form-control"
+              onChange={(e) =>
+                handleUpload(e.target.files?.[0], setDessinBlocsUrl)
+              }
+            />
+            {dessinBlocsUrl && (
+              <img
+                src={dessinBlocsUrl}
+                alt="bloc"
+                className=" border p-2 mb-2"
+                width={400}
+                height={400}
+              />
+            )}
+          </div>
+
+          <div className="col-md-6">
+            <label>Dessin Technique - Section Dalle</label>
+            <input
+              type="file"
+              className="form-control"
+              onChange={(e) =>
+                handleUpload(e.target.files?.[0], setDessinDalleUrl)
+              }
+            />
+            {dessinDalleUrl && (
+              <img
+                src={dessinDalleUrl}
+                alt="dalle"
+                className=" border p-2 mb-2"
+                width={400}
+                height={400}
+              />
+            )}
+          </div>
+        </div>
+
+        <div className="row mb-3">
+          <div className="col-md-6">
+            <label>Fichier PDF</label>
+            <input
+              type="file"
+              accept=".pdf"
+              className="form-control"
+              onChange={(e) => handleUpload(e.target.files?.[0], setPdfUrl)}
+            />
+            {pdfUrl && (
+              <a
+                href={pdfUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="d-block mt-2"
+              >
+                Voir le PDF
+              </a>
+            )}
+          </div>
+        </div>
       </div>
 
       <div className="mb-3">
-        <label>Fichier PDF</label>
-        <input
-          type="file"
-          accept=".pdf"
-          onChange={(e) => handleUpload(e.target.files?.[0], setPdfUrl)}
-        />
-        {pdfUrl && (
-          <a href={pdfUrl} target="_blank" rel="noreferrer">
-            Voir le PDF
-          </a>
-        )}
-      </div>
-
-      <div className="mb-3">
-        <label>Processus d'installation (format JSON)</label>
-        <textarea
-          className="form-control"
-          name="processusInstallation"
-          placeholder='[{"etape":1,"titre":"...","description":"..."}]'
-        />
+        <label>Processus d'installation</label>
+        <ul>
+          {processusInstallation.map((p, idx) => (
+            <li key={idx}>
+              <strong>Étape {p.etape}:</strong> {p.titre} – {p.description}
+            </li>
+          ))}
+        </ul>
+        <button
+          type="button"
+          className="btn btn-outline-primary mt-2"
+          onClick={() => setShowProcessusModal(true)}
+        >
+          Ajouter une étape
+        </button>
       </div>
 
       <div className="mb-3">
@@ -447,6 +506,165 @@ export default function FormAddSolution() {
                       setShowCertifications(false);
                     } else {
                       toast.error("Titre et description requis");
+                    }
+                  }}
+                >
+                  Ajouter
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+      {/* Modal pour ajouter une spécification */}
+      {showSpecModal && (
+        <div
+          className="modal show d-block"
+          tabIndex="-1"
+          style={{ backgroundColor: "rgba(0,0,0,0.5)" }}
+        >
+          <div className="modal-dialog">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h5 className="modal-title">Ajouter une spécification</h5>
+                <button
+                  type="button"
+                  className="btn-close"
+                  onClick={() => setShowSpecModal(false)}
+                />
+              </div>
+              <div className="modal-body">
+                <input
+                  type="text"
+                  className="form-control mb-2"
+                  placeholder="Label"
+                  value={newSpec.label}
+                  onChange={(e) =>
+                    setNewSpec({ ...newSpec, label: e.target.value })
+                  }
+                />
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Valeur"
+                  value={newSpec.value}
+                  onChange={(e) =>
+                    setNewSpec({ ...newSpec, value: e.target.value })
+                  }
+                />
+              </div>
+              <div className="modal-footer">
+                <button
+                  type="button"
+                  className="btn btn-secondary"
+                  onClick={() => setShowSpecModal(false)}
+                >
+                  Annuler
+                </button>
+                <button
+                  type="button"
+                  className="btn btn-primary"
+                  onClick={() => {
+                    if (newSpec.label && newSpec.value) {
+                      setSpecifications((prev) => [...prev, newSpec]);
+                      setNewSpec({ label: "", value: "" });
+                      setShowSpecModal(false);
+                    } else {
+                      toast.error("Label et valeur requis");
+                    }
+                  }}
+                >
+                  Ajouter
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+      {/* Modal pour ajouter une processus d'installation   */}
+      {/* Modal pour ajouter un processus d'installation */}
+      {showProcessusModal && (
+        <div
+          className="modal show d-block"
+          tabIndex="-1"
+          style={{ backgroundColor: "rgba(0,0,0,0.5)" }}
+        >
+          <div className="modal-dialog">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h5 className="modal-title">Ajouter une étape du processus</h5>
+                <button
+                  type="button"
+                  className="btn-close"
+                  onClick={() => setShowProcessusModal(false)}
+                />
+              </div>
+              <div className="modal-body">
+                <input
+                  type="number"
+                  className="form-control mb-2"
+                  placeholder="Étape (numéro)"
+                  value={newProcessus.etape}
+                  onChange={(e) =>
+                    setNewProcessus({
+                      ...newProcessus,
+                      etape: Number(e.target.value),
+                    })
+                  }
+                />
+                <input
+                  type="text"
+                  className="form-control mb-2"
+                  placeholder="Titre"
+                  value={newProcessus.titre}
+                  onChange={(e) =>
+                    setNewProcessus({
+                      ...newProcessus,
+                      titre: e.target.value,
+                    })
+                  }
+                />
+                <textarea
+                  className="form-control"
+                  placeholder="Description"
+                  value={newProcessus.description}
+                  onChange={(e) =>
+                    setNewProcessus({
+                      ...newProcessus,
+                      description: e.target.value,
+                    })
+                  }
+                />
+              </div>
+              <div className="modal-footer">
+                <button
+                  type="button"
+                  className="btn btn-secondary"
+                  onClick={() => setShowProcessusModal(false)}
+                >
+                  Annuler
+                </button>
+                <button
+                  type="button"
+                  className="btn btn-primary"
+                  onClick={() => {
+                    if (
+                      newProcessus.etape &&
+                      newProcessus.titre &&
+                      newProcessus.description
+                    ) {
+                      setProcessusInstallation((prev) => [
+                        ...prev,
+                        newProcessus,
+                      ]);
+                      setNewProcessus({
+                        etape: 0,
+                        titre: "",
+                        description: "",
+                      });
+                      setShowProcessusModal(false);
+                    } else {
+                      toast.error("Tous les champs sont requis");
                     }
                   }}
                 >

@@ -101,7 +101,7 @@ export default [
   },
   {
     label: "Calculette",
-    url: "/Calculette",
+    url: "/calculette",
   },
   {
     label: "Contact",

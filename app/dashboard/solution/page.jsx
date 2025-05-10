@@ -6,8 +6,9 @@ import PaginationDash from "@/components/dashboard/pagination/PaginationDash";
 import Link from "next/link";
 import { fetchsolutions, fetchSolutions } from "@/lib/fetchData";
 import { deleteSolution, updatesolution } from "@/lib/actions";
-import FormModifiersolution from "@/components/dashboard/form/FormModifiersolution";
+
 import FormAddSolution from "@/components/dashboard/form/FormAddSolution";
+import FormModifierSolution from "@/components/dashboard/form/FormModifierSolution";
 
 export default async function Page({ searchParams }) {
   const page = parseInt(searchParams?.page) || 1;
@@ -37,6 +38,8 @@ export default async function Page({ searchParams }) {
 
             <th>Likes</th>
             <th>Telechargér</th>
+
+            <th>pdf</th>
             <th>actions</th>
           </tr>
         </thead>
@@ -52,6 +55,18 @@ export default async function Page({ searchParams }) {
                 <td>{solution.name}</td>
                 <td>{solution.name}</td>
                 <td>{solution.name}</td>
+                <td>
+                  {solution.pdf && (
+                    <a
+                      href={solution.pdf}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="d-block mt-2"
+                    >
+                      Voir le PDF
+                    </a>
+                  )}
+                </td>
                 <td>
                   <div className={styles.buttons}>
                     <button
@@ -110,16 +125,23 @@ export default async function Page({ searchParams }) {
                   aria-label="Close"
                 ></button>
               </div>
-              <FormModifiersolution
+              <FormModifierSolution
                 solution={{
                   _id: solution._id.toString(),
                   name: solution.name,
                   description: solution.description || "",
-                  caracteristiques: solution.caracteristiques || {},
-                  exigences_qualite: solution.exigences_qualite || {},
                   avantages: solution.avantages || [],
-                  dessin_technique: solution.dessin_technique || {},
-                  support_technique: solution.support_technique || {},
+                  specifications: solution.specifications || [], // Spécifications
+                  certifications: solution.certifications || [], // Certifications
+                  processusInstallation: solution.processusInstallation || [], // Processus d'installation
+                  ecarteur: solution.ecarteur || "", // Exemple d'écarteur
+                  dessinTechnique: {
+                    sectionBlocs: solution.dessin_technique?.sectionBlocs || "", // Section Blocs
+                    sectionDalle: solution.dessin_technique?.sectionDalle || "", // Section Dalle
+                  },
+                  images: solution.images || [],
+                  pdf: solution.pdf || "",
+                  saviezVous: solution.saviezVous || "", // Le saviez-vous ?
                 }}
               />
             </div>

@@ -1,6 +1,6 @@
 import React from "react";
 
-function FormModifierSolution({ solution }) {
+function FormModifierSolution() {
   return <div>FormModifierSolution</div>;
 }
 
