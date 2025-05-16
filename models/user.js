@@ -12,10 +12,12 @@ const userSchema = new mongoose.Schema({
   username: { type: String, unique: true },
   resetToken: { type: String },
   resetExpires: { type: Date },
-  resetPasswordToken: { String },
-  resetPasswordExpires: { Date },
-  smsResetCode: { String },
-  smsResetCodeExpires: { Date },
+  resetPasswordToken: { type: String },
+  resetPasswordExpires: { type: Date },
+  smsResetCode: { type: String },
+  smsResetCodeExpires: { type: Date },
 });
 
-export default mongoose.models.User || mongoose.model("User", userSchema);
+const User = mongoose.models.User || mongoose.model("User", userSchema);
+
+export default User;

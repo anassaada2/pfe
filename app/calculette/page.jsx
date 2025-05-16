@@ -12,6 +12,7 @@ function Calculette() {
       <Header />
       <Banner title="CALCULETTE" pathName="calculette" />
       <Calculator />
+
       <Footer />
     </>
   );
